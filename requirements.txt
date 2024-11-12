@@ -1,0 +1,9 @@
+langgraph
+langchain-core
+langsmith
+openai
+langgraph-cli
+langchain_openai
+langchain_community
+tavily-python
+fastapi[standard]
