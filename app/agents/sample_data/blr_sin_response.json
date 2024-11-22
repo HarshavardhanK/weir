@@ -1,0 +1,67 @@
+{
+    "data": {
+        "context": {
+            "status": "incomplete",
+            "sessionId": "Cl0IARJZCk4KJDc4YTBjNzhlLTI5ZTUtNGU5Yy1iZDJmLWZjNzQ0MjA5MzIyMhACGiQ0NzQ3Y2NmNS05NTkyLTQyMzQtYTg3ZC0xYWU1NDEwZGZlZTUQ16nK5bMyGAESKHVzc181MTg3ZTM3NS01OTQwLTQ2OWUtYmU3Mi1mODA5NzViYTlkMDk=",
+            "totalResults": 10
+        },
+        "itineraries": [],
+        "messages": [],
+        "filterStats": {
+            "duration": {
+                "min": 285,
+                "max": 820,
+                "multiCityMin": 560,
+                "multiCityMax": 1095
+            },
+            "airports": [
+                {
+                    "city": "Bengaluru",
+                    "airports": [
+                        {
+                            "id": "BLR",
+                            "entityId": "95673351",
+                            "name": "Bengaluru"
+                        }
+                    ]
+                },
+                {
+                    "city": "Singapore",
+                    "airports": [
+                        {
+                            "id": "SIN",
+                            "entityId": "95673375",
+                            "name": "Singapore Changi"
+                        }
+                    ]
+                }
+            ],
+            "carriers": [
+                {
+                    "id": -32213,
+                    "alternateId": "49",
+                    "logoUrl": "https://logos.skyscnr.com/images/airlines/favicon/49.png",
+                    "name": "IndiGo"
+                }
+            ],
+            "stopPrices": {
+                "direct": {
+                    "isPresent": true,
+                    "formattedPrice": "$363"
+                },
+                "one": {
+                    "isPresent": true,
+                    "formattedPrice": "$353"
+                },
+                "twoOrMore": {
+                    "isPresent": false
+                }
+            }
+        },
+        "flightsSessionId": "78a0c78e-29e5-4e9c-bd2f-fc7442093222",
+        "destinationImageUrl": "https://content.skyscnr.com/m/3719e8f4a5daf43d/original/Flights-Placeholder.jpg",
+        "token": "eyJsIjpbeyJvIjoiQkxSIiwiZCI6IlNJTiIsImR0IjoiMjAyNC0xMS0yMCJ9LHsibyI6IlNJTiIsImQiOiJCTFIiLCJkdCI6IjIwMjQtMTItMjAifV0sImEiOjEsImMiOjAsImkiOjAsImNjIjoiZWNvbm9teSJ9"
+    },
+    "status": true,
+    "message": "Successful"
+}

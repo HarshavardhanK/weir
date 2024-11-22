@@ -1,0 +1,14 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore development and temporary files
+.git/
+.gitignore
+.env
+.DS_Store
+node_modules/
+
+# Ignore container-specific files
+.dockerignore

@@ -5,5 +5,9 @@ openai
 langgraph-cli
 langchain_openai
 langchain_community
+psycopg
+psycopg-pool
 tavily-python
+langgraph-checkpoint-postgres
 fastapi[standard]
+logstash-formatter
