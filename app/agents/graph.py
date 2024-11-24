@@ -49,13 +49,15 @@ TOOLS_SYSTEM_PROMPT = f"""You are a smart travel agency. Use the tools to look u
 TOOLS = [flights_finder]
 
 DATABASE_URL = os.getenv('DATABASE_URL')
-memory_store = InMemoryStore()
+
 
 class Agent:
 
     def __init__(self):
         self._tools = {t.name: t for t in TOOLS}
         self._tools_llm = ChatOpenAI(model='gpt-4o-mini').bind_tools(TOOLS)
+        
+        self.memory_store = InMemoryStore()
         
         #checkpoint = checkpointer.get(config)
 
@@ -86,10 +88,12 @@ class Agent:
             return 'update_memory'
         return 'more_tools'
     
-    def retrieve_memory(self, state: AgentState, config, *, store=memory_store):
+    def retrieve_memory(self, state: AgentState, config):
+        store = self.memory_store
         user_id = config["configurable"]["user_id"]
         namespace = (user_id, "memories")
         memories = store.search(namespace)
+        print("Memories: ", memories)
         
         memory_messages = [memory['value']['messages'] for memory in memories]
         history = '\n'.join(memory_messages)
@@ -97,7 +101,8 @@ class Agent:
         
         return {"messages": [SystemMessage(content=f"Memory:\n {history}")] + state["messages"]}
     
-    def update_memory(self, state: AgentState, config, *, store=memory_store):
+    def update_memory(self, state: AgentState, config):
+        store = self.memory_store
         user_id = config["configurable"]["user_id"]
         namespace = (user_id, "memories")
         
@@ -134,11 +139,13 @@ def call_agent(message: str, user_id: str, namespace: str, thread_id: str):
         with PostgresSaver.from_conn_string(DATABASE_URL) as checkpointer:
             checkpointer.setup()
             print("Compiling graph")
-            graph = builder.compile(checkpointer=checkpointer, store=memory_store)
+            graph = builder.compile(checkpointer=checkpointer, store=agent.memory_store)
             print("Graph compiled")
             initial_state = {'messages': [HumanMessage(content=message)]}
             print("Invoking graph")
-            return graph.invoke(initial_state, config={"configurable": {"user_id": user_id, "checkpoint_ns": namespace, "thread_id": thread_id}})
+        
+            message = graph.invoke(initial_state, config={"configurable": {"user_id": user_id, "checkpoint_ns": namespace, "thread_id": thread_id}})
+            return {"message": message["messages"][-1].content} 
     except Exception as e:
         logger.error("An error occurred in call_agent", exc_info=True)
 
