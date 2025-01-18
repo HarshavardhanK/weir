@@ -1,0 +1,79 @@
+.login-container {
+    text-align: center;
+    padding: 2rem;
+    width: 344px;
+  }
+  
+  .login-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .login-desc {
+    font-size: 1rem;
+    line-height: 2;
+    width: 90%;
+    padding: 12px;
+    font-size: x-small;
+  }
+
+  .login-animation {
+    width: 64px;
+    height: 64px;
+  }
+
+  .login-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .dialog-login-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 176px;
+    margin: auto;
+    background-color: #000000dd;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 16px;
+  }
+
+  .login-close {
+    font-size: small;
+    padding: 16px;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    cursor: pointer;
+    margin: 2px;
+  }
+
+.login-container {
+    height:300px;
+    width:300px;
+    border:1px solid black;
+    font-size:30px;
+    background: linear-gradient(130deg, #BAD8B6, #E1EACD, #F9F6E6);
+    background-size: 200% 200%;
+
+    -webkit-animation: Animation 8s ease infinite;
+    -moz-animation: Animation 8s ease infinite;
+    animation: Animation 8s ease infinite;
+}
+
+@-webkit-keyframes Animation {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@-moz-keyframes Animation {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@keyframes Animation { 
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
