@@ -1,7 +1,7 @@
 import os
 import pytest
 import psycopg2
-from app.agents.utils.postgres_utils import store_memory_in_db, retrieve_memory_from_db
+from app.agents.memory.utils.postgres_utils import store_memory_in_db, retrieve_memory_from_db
 
 # Mock environment variable for testing
 os.environ['DATABASE_URL'] = 'postgresql://weir:password@localhost:5432/weirdb'

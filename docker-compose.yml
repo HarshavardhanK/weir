@@ -14,6 +14,7 @@ services:
       - postgres
       - logstash
       - elasticsearch
+      - redis
     # volumes:
     #   - ./app:/app
 
@@ -54,10 +55,20 @@ services:
       - esdata:/usr/share/elasticsearch/data
       - ./certs:/usr/share/elasticsearch/config/certs
 
+  redis:
+    image: redis:latest
+    container_name: weir-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
 volumes:
   postgres-data:
     driver: local
   app-data:
     driver: local
   esdata:
+    driver: local
+  redis-data:
     driver: local
