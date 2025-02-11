@@ -15,6 +15,8 @@ services:
       - logstash
       - elasticsearch
       - redis
+      - prometheus
+      - grafana
     # volumes:
     #   - ./app:/app
 
@@ -63,6 +65,25 @@ services:
     volumes:
       - redis-data:/data
 
+  prometheus:
+    image: prom/prometheus/latest
+    container_name: prometheus
+    volumes:
+    - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+    - "3000:3000"
+    volumes:
+    - grafana-data:/var/lib/grafana
+    depends_on:
+    - prometheus
+
+
 volumes:
   postgres-data:
     driver: local
@@ -71,4 +92,6 @@ volumes:
   esdata:
     driver: local
   redis-data:
+    driver: local
+  grafana-data:
     driver: local
